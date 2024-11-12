@@ -1,0 +1,13 @@
+{
+    "galeria": [
+      {
+        "tipo": "foto",
+        "src": "foto1.jpg"
+      },
+      {
+        "tipo": "video",
+        "src": "video1.mp4"
+      }
+    ]
+  }
+  

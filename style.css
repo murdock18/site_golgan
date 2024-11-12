@@ -1,0 +1,168 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do Corpo */
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+  }
+  
+  /* Navegação */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .navbar h1 {
+    font-size: 1.8rem;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Seção Home */
+  .home {
+    text-align: center;
+    padding: 100px 20px;
+    background: #333;
+    color: #fff;
+  }
+  
+  .home h2 {
+    font-size: 2.5rem;
+  }
+  
+  /* Seção Sobre Nós */
+  .sobre {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .sobre h2 {
+    font-size: 2rem;
+    color: #ff5733;
+  }
+  
+  /* Seção Trabalhos */
+  .trabalhos {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .trabalhos h2 {
+    font-size: 2rem;
+    color: #ff5733;
+  }
+  
+  .portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .portfolio-item {
+    width: 250px;
+    text-align: center;
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Seção Galeria */
+  .galeria {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .galeria h2 {
+    font-size: 2rem;
+    color: #ff5733;
+  }
+  
+  .media-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .media-item {
+    width: 300px;
+  }
+  
+  .media-item img,
+  .media-item video {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Seção Contato */
+  .contato {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .contato h2 {
+    font-size: 2rem;
+    color: #ff5733;
+  }
+  
+  .contato form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .contato input,
+  .contato textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .contato button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .contato button:hover {
+    background-color: #ff784e;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+  }
+  
