@@ -12,45 +12,19 @@ document.getElementById("contato-form").addEventListener("submit", function(even
       alert("Por favor, preencha todos os campos.");
     }
   });
+ 
+      AOS.init({ duration: 1200, easing: "ease-in-out" });
 
-  // Função para carregar os trabalhos do arquivo JSON
-fetch('trabalhos.json')
-.then(response => response.json())
-.then(data => {
-  const portfolio = document.querySelector('.portfolio');
-  data.trabalhos.forEach(trabalho => {
-    const item = document.createElement('div');
-    item.classList.add('portfolio-item');
-    item.innerHTML = `
-      <img src="${trabalho.imagem}" alt="${trabalho.titulo}">
-      <h3>${trabalho.titulo}</h3>
-      <p>${trabalho.descricao}</p>
-    `;
-    portfolio.appendChild(item);
-  });
-})
-.catch(error => console.error('Erro ao carregar os trabalhos:', error));
-
-// Função para carregar a galeria do arquivo JSON
-fetch('galeria.json')
-.then(response => response.json())
-.then(data => {
-  const gallery = document.querySelector('.media-gallery');
-  data.galeria.forEach(item => {
-    const mediaItem = document.createElement('div');
-    mediaItem.classList.add('media-item');
-    if (item.tipo === 'foto') {
-      mediaItem.innerHTML = `<img src="${item.src}" alt="Foto">`;
-    } else if (item.tipo === 'video') {
-      mediaItem.innerHTML = `
-        <video controls>
-          <source src="${item.src}" type="video/mp4">
-          Seu navegador não suporta vídeos.
-        </video>`;
-    }
-    gallery.appendChild(mediaItem);
-  });
-})
-.catch(error => console.error('Erro ao carregar a galeria:', error));
-
-  
+      // Ajuste de rolagem para compensar o navbar fixo
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          window.scrollTo({
+            top: targetElement.offsetTop - 70, // Ajuste para compensar o navbar
+            behavior: "smooth",
+          });
+        });
+      });
+      

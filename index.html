@@ -1,91 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golgan Comunicação Total</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Navegação -->
-  <nav class="navbar">
-    <h1>
-      <img src="/img/logo-golgan-branca.png" alt="Texto alternativo aqui">
-    </h1>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#sobre">Sobre Nós</a></li>
-      <li><a href="#trabalhos">Trabalhos</a></li>
-      <li><a href="#galeria">Galeria</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golgan Comunicação Total</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Seção Home -->
-  <section id="home" class="home">
-    <h2>Bem-vindo à Golgan Comunicação Total</h2>
-    <p>Produzindo histórias que conectam e inspiram.</p>
-  </section>
-
-  <!-- Seção Sobre Nós -->
-  <section id="sobre" class="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Golgan é uma empresa de comunicação e produtora de vídeo que busca atender seus clientes com qualidade, 
-      agilidade e profissionalismo.</p>
-  </section>
-
-  <!-- Seção Trabalhos -->
-  <section id="trabalhos" class="trabalhos">
-    <h2>Nossos Trabalhos</h2>
-    <div class="portfolio">
-      <div class="portfolio-item">
-        <img src="trabalho1.jpg" alt="Trabalho 1">
-        <h3>Título do Trabalho 1</h3>
-        <p>Descrição do trabalho realizado.</p>
+  </head>
+  <body>
+    <!-- Barra Superior -->
+    <div class="top-bar">
+      <div class="left-info">
+        <span>contato@golgan.com</span>
+        <span>Belém - PA</span>
       </div>
-      <div class="portfolio-item">
-        <img src="trabalho2.jpg" alt="Trabalho 2">
-        <h3>Título do Trabalho 2</h3>
-        <p>Descrição do trabalho realizado.</p>
+      <div class="social-icons">
+        <a href="#">WhatsApp</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
       </div>
-      <!-- Adicione mais itens conforme necessário -->
     </div>
-  </section>
 
-  <!-- Seção Galeria -->
-  <section id="galeria" class="galeria">
-    <h2>Galeria</h2>
-    <div class="media-gallery">
-      <div class="media-item">
-        <img src="/img/GOLGAN-ID-VISUAL-G-GRID.png" alt="Foto 1">
+    <!-- Navbar Flutuante -->
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="/img/logo-golgan-branca.png"
+          alt="Logo Golgan Comunicação Total"
+        />
       </div>
-      <div class="media-item">
-        <video controls>
-          <source src="/img/GOLGAN_COMUNICAÇÃO_TOTAL_ PRODUTORA_DE_VÍDEO.mp4" type="video/mp4">
-          Seu navegador não suporta vídeos.
-        </video>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#trabalhos">Trabalhos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- Home -->
+    <section id="home" class="home">
+      <iframe
+        src="https://www.youtube.com/embed/rDsRx35Cz7U?controls=0&autoplay=1&loop=1&mute=1&playlist=rDsRx35Cz7U"
+        title="Background Video"
+      ></iframe>
+      <div class="overlay">
+        <h1 data-aos="fade-up">Produção Criativa e Estratégica</h1>
+        <p data-aos="fade-up">
+          Transformamos ideias em conteúdos inspiradores e impactantes.
+        </p>
       </div>
-      <!-- Adicione mais fotos e vídeos conforme necessário -->
-    </div>
-  </section>
+    </section>
 
-  <!-- Seção Contato -->
-  <section id="contato" class="contato">
-    <h2>Entre em Contato</h2>
-    <p>Quer saber mais sobre nossos serviços? Envie uma mensagem!</p>
-    <form id="contato-form">
-      <input type="text" id="nome" placeholder="Seu Nome" required>
-      <input type="email" id="email" placeholder="Seu Email" required>
-      <textarea id="mensagem" placeholder="Sua Mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+    <!-- Sobre Nós -->
+    <section id="sobre" data-aos="fade-up">
+      <h2 style="font-size: 32px">Sobre Nós</h2>
+      <p>
+        A Golgan oferece soluções completas em comunicação, transformando ideias
+        em resultados.
+      </p>
+      <img src="https://via.placeholder.com/800x400" alt="Sobre Nós" />
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 Golgan Comunicação Total. Todos os direitos reservados.</p>
-  </footer>
+    <!-- Trabalhos -->
+    <section id="trabalhos" data-aos="fade-up">
+      <h2 style="font-size: 32px">Nossos Trabalhos</h2>
+      <div class="portfolio">
+        <div class="portfolio-item" data-aos="fade-up">
+          <img src="https://via.placeholder.com/300x200" alt="Projeto 1" />
+          <h3>Projeto 1</h3>
+          <p>Descrição do projeto.</p>
+        </div>
+        <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://via.placeholder.com/300x200" alt="Projeto 2" />
+          <h3>Projeto 2</h3>
+          <p>Descrição do projeto.</p>
+        </div>
+      </div>
+    </section>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Galeria -->
+    <section id="galeria" data-aos="fade-up">
+      <h2 style="font-size: 32px">Galeria</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="zoom-in">
+          <img src="https://via.placeholder.com/300x200" alt="Imagem 1" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://via.placeholder.com/300x200" alt="Imagem 2" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://via.placeholder.com/300x200" alt="Imagem 3" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" data-aos="fade-up">
+      <h2 style="font-size: 32px">Contato</h2>
+      <form>
+        <input type="text" placeholder="Seu Nome" required />
+        <input type="email" placeholder="Seu Email" required />
+        <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Golgan Comunicação Total. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+   <!-- <script>
+      AOS.init({ duration: 1200, easing: "ease-in-out" });
+
+      // Ajuste de rolagem para compensar o navbar fixo
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          window.scrollTo({
+            top: targetElement.offsetTop - 70, // Ajuste para compensar o navbar
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>-->
+     <script src="script.js"></script>
+  </body>
 </html>
