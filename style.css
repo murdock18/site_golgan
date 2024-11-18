@@ -12,11 +12,11 @@ body {
 
 /* Barra Superior */
 .top-bar {
-  opacity: 70%;
+  opacity: 75%;
   /*position: fixed;*/
   top: 0;
   width: 100%;
-  background: linear-gradient(90deg, #007aff 0%, #001f3f 100%);
+  background: linear-gradient(90deg, #FF007F 0%, #7B1FA2 50%, #512DA8 100%);
   color: white;
   padding: 2px 250px;
   display: flex;
