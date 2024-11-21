@@ -6,13 +6,13 @@
 }
 
 body {
-    margin: 0; /* Remove margens padrão do body */
-    padding: 0; /* Remove o espaçamento padrão */
-    background: linear-gradient(90deg, #ff007f 0%, #7b1fa2 50%, #512da8 100%);
-    color: #fff; /* Define a cor do texto para branco (ou ajustável conforme necessário) */
-    font-family: Arial, sans-serif; /* Define a fonte padrão */
-    background-size: cover; /* Certifica-se de que o fundo cobre toda a tela */
-    background-attachment: fixed; /* O fundo permanece fixo ao rolar */
+    margin: 0;
+    padding: 0; 
+    background: linear-gradient(90deg, #4f0743  0%, #d2006a  50%, #00d85c  100%);
+    color: #fff; 
+    font-family: Arial, sans-serif; 
+    background-size: cover; 
+    background-attachment: fixed; 
   
 }
 
@@ -21,37 +21,35 @@ body {
   opacity: 75%;
   top: 0;
   width: 100%;
-  
   color: white;
-  padding: 10px 20px; /* Ajusta o espaçamento interno */
-  display: flex; /* Ativa o Flexbox */
-  justify-content: space-between; /* Texto no centro e ícones à direita */
-  align-items: center; /* Centraliza o conteúdo verticalmente */
-  z-index: 1000;
+  padding: 10px 25px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
   font-size: 0.9rem;
   position: relative;
 }
 
 .left-info {
-  position: absolute; /* Para centralizar no meio */
-  left: 50%; /* Posiciona no centro horizontal */
-  transform: translateX(-50%); /* Ajusta para centralizar */
-  display: flex; /* Organiza os textos em linha */
-  align-items: center; /* Alinha verticalmente */
-  gap: 20px; /* Espaçamento entre os textos */
+  position: absolute;
+  left: 50%; 
+  transform: translateX(-50%); 
+  display: flex; 
+  align-items: center;
+  gap: 20px; 
 }
 
 .left-info span {
-  text-transform: uppercase; /* Texto em maiúsculo */
-  font-weight: bold; /* Negrito */
-  font-size: 1rem; /* Tamanho do texto */
-  letter-spacing: 1px; /* Espaçamento entre letras */
+  text-transform: uppercase;
+  font-weight: bold; 
+  font-size: 2rem;
+  letter-spacing: 1px; 
 }
 
 .social-icons {
-  display: flex; /* Organiza os ícones em linha */
-  align-items: center; /* Centraliza verticalmente */
-  gap: 10px; /* Espaçamento entre os ícones */
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
 }
 
 .social-icons a {
@@ -67,19 +65,19 @@ body {
 }
 
 .social-icons a img:hover {
-  transform: scale(1.2); /* Amplia o ícone no hover */
+  transform: scale(1.2);
 }
 
 
 /* Navbar */
 .navbar {
-  position: fixed;
+  position: relative;
   top: 70px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 40px;
+ 
   z-index: 999;
 }
 
@@ -230,6 +228,28 @@ section {
   }
 }
 
+.corner-image-direita {
+  position: absolute;
+  bottom: 10px;
+  right: 10px; 
+  width: 80px;
+  height: auto; 
+  z-index: 3; 
+  pointer-events: none; 
+}
+
+.corner-image-esquerda {
+    position: absolute;
+    top: 0; 
+    left: 10px; 
+    width: 90px; 
+    height: auto;
+    z-index: 3; 
+    pointer-events: none;
+}
+  
+
+
 
 /* Serviços */
 #servicos {
@@ -237,7 +257,7 @@ section {
   
   color: black;
   padding: 80px 20px;
-  background-size: 400% 400%; /* Para criar movimento */
+  background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
 }
 
@@ -256,7 +276,7 @@ section {
 
 /* Configuração principal */
 #servicos {
-  height: 100vh; /* Preencher a altura total da tela */
+  height: 100vh; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,17 +288,17 @@ section {
 
 .servicos-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dois quadrados por linha */
-  grid-template-rows: repeat(2, 1fr); /* Dois quadrados na vertical */
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(2, 1fr); 
   width: 100%;
   height: 100%;
-  gap: 2px; /* Espaço entre os quadrados */
+  gap: 2px;
 }
 
 /* Configuração dos quadrados */
 .servico-item {
   position: relative;
-  background-size: cover; /* Imagem de fundo */
+  background-size: cover; 
   background-position: center;
   display: flex;
   align-items: center;
@@ -298,7 +318,7 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 2; /* Garantir que fique acima da imagem */
+  z-index: 2; 
   color: white;
   transition: all 0.3s ease-in-out;
 }
@@ -334,7 +354,7 @@ section {
 
 .servico-item.active .servico-detalhes {
   opacity: 1;
-  margin-top: 50px; /* Empurra os detalhes para baixo */
+  margin-top: 50px; 
 }
 
 /* Cores específicas e imagens de fundo */
@@ -362,7 +382,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Escurecimento */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
   transition: all 0.3s ease;
 }
@@ -411,25 +431,25 @@ section {
 
 /* Estilo do Container */
 .info-container {
-  padding: 50px 20px; /* Espaçamento interno */
+  padding: 50px 20px; 
   
 }
 
 /* Configuração do Grid */
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-  grid-gap: 20px; /* Espaço entre os itens */
-  max-width: 1200px; /* Largura máxima */
-  margin: 0 auto; /* Centraliza o grid na página */
+  grid-template-columns: repeat(3, 1fr); 
+  grid-gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto; 
 }
 
 /* Estilo de cada Item */
 .info-item {
   background: white;
   padding: 20px;
-  border-radius: 8px; /* Borda arredondada */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -439,26 +459,26 @@ section {
 .info-item h3 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #512da8; /* Cor do título */
+  color: #512da8; 
   margin-bottom: 10px;
 }
 
 .info-item p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #555; /* Cor do texto */
+  color: #555; 
 }
 
 /* Estilo dos Ícones */
 .info-icon {
-  width: 80px; /* Tamanho do ícone */
-  height: 80px; /* Tamanho do ícone */
-  border-radius: 50%; /* Torna o ícone circular */
-  margin-bottom: 15px; /* Espaçamento abaixo do ícone */
-  object-fit: cover; /* Garante que a imagem fique ajustada ao círculo */
-  background-color: #512da8; /* Cor de fundo para ícones com transparência */
-  padding: 3px; /* Espaçamento interno (opcional) */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  width: 80px; 
+  height: 80px; 
+  border-radius: 50%; 
+  margin-bottom: 15px; 
+  object-fit: cover; 
+  background-color: #512da8; 
+  padding: 3px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -607,6 +627,55 @@ form button:hover {
   background: #e63e00;
 }
 
+/* Estilo da seção de clientes */
+.clientes-section {
+  padding: 50px 20px;
+  text-align: center; 
+}
+
+/* Título da seção */
+.clientes-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff; 
+  margin-bottom: 30px;
+}
+
+/* Grade para as logos */
+.clientes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  gap: 20px; 
+  justify-items: center;
+}
+
+/* Cada item do cliente */
+.cliente-item {
+  width: 150px; 
+  height: 150px; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  background: white; 
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Efeito ao passar o mouse */
+.cliente-item:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+/* Estilo das imagens */
+.cliente-item img {
+  max-width: 80%; 
+  max-height: 80%; 
+  object-fit: contain; 
+}
+
+
 /* Footer */
 footer {
   background: linear-gradient(135deg, #ff4500, #007aff, #00ff87);
@@ -654,3 +723,15 @@ footer {
 .footer-section ul li a:hover {
   text-decoration: underline;
 }
+
+.footer-logos {
+  margin-top: 20px; 
+  text-align: center;
+}
+
+.footer-logos img {
+  max-width: 100%; 
+  height: auto; 
+  display: inline-block;
+}
+
