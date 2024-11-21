@@ -457,7 +457,7 @@ section {
   margin-bottom: 15px; /* Espaçamento abaixo do ícone */
   object-fit: cover; /* Garante que a imagem fique ajustada ao círculo */
   background-color: #512da8; /* Cor de fundo para ícones com transparência */
-  padding: 10px; /* Espaçamento interno (opcional) */
+  padding: 3px; /* Espaçamento interno (opcional) */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
