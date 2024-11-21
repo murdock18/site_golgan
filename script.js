@@ -1,3 +1,43 @@
+AOS.init({ duration: 1200, easing: "ease-in-out" });
+
+// Ajuste de rolagem para compensar o menu fixo
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+    const offset = 140; // Ajuste de altura para o navbar
+    const topPosition = targetElement.offsetTop - offset;
+    window.scrollTo({
+      top: topPosition,
+      behavior: "smooth",
+    });
+  });
+});
+
+//Serviços
+document.addEventListener("DOMContentLoaded", () => {
+  const servicoItems = document.querySelectorAll(".servico-item");
+
+  servicoItems.forEach((item) => {
+    // Adiciona o comportamento de clique
+    item.addEventListener("click", () => {
+      // Remove a classe 'active' de todos os itens
+      servicoItems.forEach((el) => el.classList.remove("active"));
+      // Adiciona a classe 'active' no item clicado
+      item.classList.add("active");
+    });
+
+    // Adiciona o comportamento de mouseleave (tirar o mouse de cima)
+    item.addEventListener("mouseleave", () => {
+      // Remove a classe 'active' para voltar ao estado inicial
+      item.classList.remove("active");
+    });
+  });
+});
+
+
+
 // Seleciona o formulário de contato
 const contatoForm = document.querySelector('#contato form');
 
@@ -52,5 +92,19 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       top: targetElement.offsetTop - 70, // Ajuste para compensar o navbar
       behavior: "smooth",
     });
+  });
+});
+
+document.querySelectorAll('.servico-item').forEach(item => {
+  item.addEventListener('click', () => {
+    // Atualizar o título e os detalhes dinamicamente
+    const servico = item.getAttribute('data-servico');
+    const detalhes = document.querySelector('.servicos-detalhes');
+    const tituloDetalhes = detalhes.querySelector('.detalhes-title');
+
+    tituloDetalhes.textContent = servico;
+
+    // Exibir detalhes
+    detalhes.classList.add('active');
   });
 });

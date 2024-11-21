@@ -181,6 +181,13 @@ section {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.home .overlay img { 
+  max-width: 450px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+}
+
 .home h1 {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -263,7 +270,7 @@ section {
 #servicos {
   
   background: linear-gradient(135deg, #4a148c, #7b1fa2, #512da8, #673ab7);
-  color: white;
+  color: black;
   padding: 80px 20px;
   background-size: 400% 400%; /* Para criar movimento */
   animation: gradientAnimation 10s ease infinite;
@@ -281,115 +288,125 @@ section {
   }
 }
 
-.servicos-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
 
-.servicos-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.servicos-subtitle {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 50px;
-}
-
-.servicos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin-bottom: 50px;
-}
-
-.servico-item {
+/* Configuração principal */
+#servicos {
+  height: 100vh; /* Preencher a altura total da tela */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: white;
-  color: #673ab7;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.servico-item img {
-  width: 50px;
-  margin-bottom: 15px;
-}
-
-.servico-item p {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.servico-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-.servico-item.active {
-  background: #673ab7;
-  color: white;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Box de Detalhes com maior transparência */
-.servicos-detalhes {
-  background: rgba(255, 255, 255, 0.15); /* Fundo mais transparente */
-  padding: 40px;
-  border-radius: 15px;
-  text-align: left;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2), 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra destacada */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda leve e transparente */
-  backdrop-filter: blur(10px); /* Adiciona o efeito de vidro */
-  -webkit-backdrop-filter: blur(10px); /* Suporte para navegadores baseados no Webkit */
-  transition: all 0.3s ease-in-out; /* Transição suave para qualquer mudança */
-}
-
-.servicos-detalhes .detalhes-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: white; /* Garante visibilidade */
-}
-
-.servicos-detalhes .detalhes-list {
-  list-style: none;
+  color: black;
+  margin: 0;
   padding: 0;
 }
 
-.servicos-detalhes .detalhes-list li {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  line-height: 1.6;
-  color: white; /* Garante visibilidade */
+.servicos-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dois quadrados por linha */
+  grid-template-rows: repeat(2, 1fr); /* Dois quadrados na vertical */
+  width: 100%;
+  height: 100%;
+  gap: 2px; /* Espaço entre os quadrados */
 }
 
-.servicos-detalhes .detalhes-list strong {
+/* Configuração dos quadrados */
+.servico-item {
+  position: relative;
+  background-size: cover; /* Imagem de fundo */
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Títulos e detalhes */
+.servico-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2; /* Garantir que fique acima da imagem */
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.servico-title {
+  font-size: 2rem;
   font-weight: bold;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Efeito de animação para o conteúdo do box */
-#detalhes-content,
-#detalhes-title {
-  animation: fadeIn 0.5s ease-in-out;
+/* Título vai para o topo ao ativar */
+.servico-item.active .servico-title {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Detalhes inicialmente escondidos */
+.servico-detalhes {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out;
 }
+
+.servico-item.active .servico-detalhes {
+  opacity: 1;
+  margin-top: 50px; /* Empurra os detalhes para baixo */
+}
+
+/* Cores específicas e imagens de fundo */
+.servico-item:nth-child(1) {
+  background-image: url('caminho/para/sua-imagem1.jpg'); /* Imagem do Audiovisual */
+}
+
+.servico-item:nth-child(2) {
+  background-image: url('caminho/para/sua-imagem2.jpg'); /* Imagem do Eventos */
+}
+
+.servico-item:nth-child(3) {
+  background-image: url('caminho/para/sua-imagem3.jpg'); /* Imagem do Comunicação */
+}
+
+.servico-item:nth-child(4) {
+  background-image: url('caminho/para/sua-imagem4.jpg'); /* Imagem do Marketing */
+}
+
+/* Sobreposição para facilitar leitura */
+.servico-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Escurecimento */
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.servico-item:hover::before {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
 
 
 /* Galeria */
