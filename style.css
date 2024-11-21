@@ -6,68 +6,70 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  scroll-behavior: smooth;
+    margin: 0; /* Remove margens padrão do body */
+    padding: 0; /* Remove o espaçamento padrão */
+    background: linear-gradient(90deg, #ff007f 0%, #7b1fa2 50%, #512da8 100%);
+    color: #fff; /* Define a cor do texto para branco (ou ajustável conforme necessário) */
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    background-size: cover; /* Certifica-se de que o fundo cobre toda a tela */
+    background-attachment: fixed; /* O fundo permanece fixo ao rolar */
+  
 }
 
 /* Barra Superior */
 .top-bar {
   opacity: 75%;
-  /*position: fixed;*/
   top: 0;
   width: 100%;
-  background: linear-gradient(90deg, #FF007F 0%, #7B1FA2 50%, #512DA8 100%);
+  
   color: white;
-  padding: 2px 250px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px 20px; /* Ajusta o espaçamento interno */
+  display: flex; /* Ativa o Flexbox */
+  justify-content: space-between; /* Texto no centro e ícones à direita */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
   z-index: 1000;
   font-size: 0.9rem;
+  position: relative;
 }
 
-.top-bar .left-info {
-  display: flex;
-  gap: 20px;
+.left-info {
+  position: absolute; /* Para centralizar no meio */
+  left: 50%; /* Posiciona no centro horizontal */
+  transform: translateX(-50%); /* Ajusta para centralizar */
+  display: flex; /* Organiza os textos em linha */
+  align-items: center; /* Alinha verticalmente */
+  gap: 20px; /* Espaçamento entre os textos */
 }
 
-.top-bar .social-icons {
-  display: flex;
-  gap: 10px;
-  
+.left-info span {
+  text-transform: uppercase; /* Texto em maiúsculo */
+  font-weight: bold; /* Negrito */
+  font-size: 1rem; /* Tamanho do texto */
+  letter-spacing: 1px; /* Espaçamento entre letras */
 }
 
-.top-bar .social-icons a {
+.social-icons {
+  display: flex; /* Organiza os ícones em linha */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.social-icons a {
   color: white;
   text-decoration: none;
   transition: opacity 0.3s;
 }
 
-.top-bar .social-icons a img {
+.social-icons a img {
   width: 25px;
   height: 25px;
   transition: transform 0.3s ease;
 }
 
-.top-bar .social-icons a img:hover {
-  transform: scale(1.2);
+.social-icons a img:hover {
+  transform: scale(1.2); /* Amplia o ícone no hover */
 }
 
-.top-bar .social-icons a .icone {
-  text-decoration: none;  
-  color: inherit;
-  padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-}
-
-.top-bar .social-icons a:hover {
-  opacity: 0.7;
-}
 
 /* Navbar */
 .navbar {
@@ -228,48 +230,11 @@ section {
   }
 }
 
-/* Sobre */
-#sobre {
-  background: linear-gradient(180deg, #6a1b9a 0%, #ff4081 100%);
-  color: white;
-}
-
-#sobre .container {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-#sobre .text {
-  flex: 1;
-  text-align: left;
-}
-
-#sobre .image {
-  flex: 1;
-}
-
-#sobre .image img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#sobre h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#sobre p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
 
 /* Serviços */
 #servicos {
   
-  background: linear-gradient(135deg, #4a148c, #7b1fa2, #512da8, #673ab7);
+  
   color: black;
   padding: 80px 20px;
   background-size: 400% 400%; /* Para criar movimento */
@@ -406,12 +371,100 @@ section {
   background: rgba(0, 0, 0, 0.7);
 }
 
+/* Sobre */
+#sobre {
+ 
+  color: white;
+}
 
+#sobre .container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#sobre .text {
+  flex: 1;
+  text-align: left;
+}
+
+#sobre .image {
+  flex: 1;
+}
+
+#sobre .image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#sobre h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#sobre p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Estilo do Container */
+.info-container {
+  padding: 50px 20px; /* Espaçamento interno */
+  
+}
+
+/* Configuração do Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  grid-gap: 20px; /* Espaço entre os itens */
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza o grid na página */
+}
+
+/* Estilo de cada Item */
+.info-item {
+  background: white;
+  padding: 20px;
+  border-radius: 8px; /* Borda arredondada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #512da8; /* Cor do título */
+  margin-bottom: 10px;
+}
+
+.info-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555; /* Cor do texto */
+}
+
+/* Estilo dos Ícones */
+.info-icon {
+  width: 80px; /* Tamanho do ícone */
+  height: 80px; /* Tamanho do ícone */
+  border-radius: 50%; /* Torna o ícone circular */
+  margin-bottom: 15px; /* Espaçamento abaixo do ícone */
+  object-fit: cover; /* Garante que a imagem fique ajustada ao círculo */
+  background-color: #512da8; /* Cor de fundo para ícones com transparência */
+  padding: 10px; /* Espaçamento interno (opcional) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
 
 
 /* Galeria */
 #galeria {
-  background: linear-gradient(135deg, #8e24aa 0%, #00e5ff 100%);
+  
   color: white;
 }
 
@@ -438,7 +491,7 @@ section {
 
 /* Contato */
 #contato {
-  background: linear-gradient(135deg, #800080, #ff0066);
+  
   color: white;
   padding: 50px 20px;
 }
