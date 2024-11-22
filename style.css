@@ -22,24 +22,22 @@ body {
   top: 0;
   width: 100%;
   color: white;
-  padding: 10px 25px; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
+  padding: 10px 25px;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente no desktop */
+  align-items: center;
   font-size: 0.9rem;
   position: relative;
 }
 
-.left-info {
-  padding-top: 25px;
-  position: absolute;
-  left: 50%; 
-  transform: translateX(-50%); 
-  display: flex; 
-  align-items: center;
-  gap: 20px; 
+/* Alinhamento para os elementos internos */
+.top-bar .left-info {
+  display: flex;
+  gap: 20px; /* Espaçamento entre os spans */
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem; /* Tamanho padrão no desktop */
 }
-
 .left-info span {
   text-transform: uppercase;
   font-weight: bold; 
@@ -69,7 +67,6 @@ body {
   transform: scale(1.2);
 }
 
-
 /* Navbar */
 .navbar {
   position: relative;
@@ -77,15 +74,15 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
- 
+  justify-content: center; /* Centraliza no desktop */
   z-index: 999;
+  padding: 0 20px;
 }
 
 .navbar .logo {
-  position: absolute;
-  left: 40px;
-  padding: 2px 150px;
+    position: absolute;
+    left: 40px;
+    padding: 2px 150px;
 }
 
 .navbar .logo img {
@@ -97,24 +94,25 @@ body {
   transform: scale(1.1);
 }
 
-.navbar ul {
+.navbar .menu {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 30px; /* Espaçamento entre os itens */
 }
 
-.navbar ul li a {
+.navbar .menu li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
-.navbar ul li a:hover {
+.navbar .menu li a:hover {
   color: #00ff87;
 }
 
-.navbar ul li a::after {
+.navbar .menu li a::after {
   content: "";
   display: block;
   width: 0;
@@ -123,9 +121,96 @@ body {
   transition: width 0.3s;
 }
 
-.navbar ul li a:hover::after {
-  width: 100%;
+.navbar .menu li a:hover::after {
+  width: 100%; /* Efeito de sublinhado */
 }
+
+/* Ícone do Menu Hambúrguer */
+.hamburger {
+  display: none; /* Esconde o hambúrguer no desktop */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px; /* Posiciona no lado direito */
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+/* Sidebar Menu */
+
+
+/* Sidebar Menu */
+.menu-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Esconde o menu lateral fora da tela */
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95); /* Fundo escuro */
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1100;
+}
+
+.menu-sidebar.active {
+  right: 0; /* Mostra o menu lateral quando a classe "active" é adicionada */
+}
+
+.menu-sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-sidebar li a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu-sidebar li a:hover {
+  color: #00ff87;
+}
+
+/* RESPONSIVIDADE */
+
+/* Mobile - Esconder menu horizontal e mostrar hambúrguer */
+@media screen and (max-width: 768px) {
+  .menu {
+    display: none !important; /* Esconde o menu horizontal no mobile */
+  }
+
+  .hamburger {
+    display: flex !important; /* Mostra o menu hambúrguer */
+  }
+}
+
+/* Desktop - Esconder menu sidebar e hambúrguer */
+@media screen and (min-width: 769px) {
+  .menu-sidebar {
+    display: none; /* Garante que o sidebar não aparece no desktop */
+  }
+
+  .hamburger {
+    display: none; /* Esconde o ícone do menu hambúrguer no desktop */
+  }
+}
+
 
 /* Sessões */
 section {
@@ -153,12 +238,16 @@ section {
 
 /* Home */
 .home {
-  position: relative;
+  position: relative; /* Define um contexto para posicionamento absoluto */
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  text-align: center; /* Centraliza o texto */
+  overflow: hidden; /* Impede que elementos escapem da seção */
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
 }
 
 .home iframe {
@@ -168,21 +257,22 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2; /* Coloca o vídeo atrás de tudo */
   filter: brightness(60%);
+  border: none;
 }
 
 .home .overlay {
-  z-index: 2;
+  z-index: 1; /* Coloca o conteúdo acima do vídeo e imagens */
   max-width: 800px;
-  text-align: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  border: none;
 }
 
-.home .overlay img { 
+.home .overlay img {
   max-width: 450px;
   max-height: 250px;
   width: auto;
@@ -190,14 +280,14 @@ section {
 }
 
 .home h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
   text-transform: uppercase;
   animation: fadeIn 2s ease-in-out;
 }
 
 .home p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 20px;
   animation: fadeIn 3s ease-in-out;
 }
@@ -229,40 +319,98 @@ section {
   }
 }
 
-.home .corner-image-direita {
-  position: absolute;
-  bottom: 10px;
-  right: 10px; 
-  width: 80px;
-  height: auto; 
-  z-index: 3; 
-  pointer-events: none; 
+/* Imagens de canto */
+.home .corner-image-direita,
+.home .corner-image-esquerda {
+  position: absolute; /* Permite posicionamento livre */
+  z-index: -1; /* Coloca as imagens atrás do conteúdo */
+  width: 100px; /* Ajusta o tamanho das imagens */
+  height: auto;
+  pointer-events: none; /* Evita interações com as imagens */
 }
 
+/* Imagem à direita */
+.home .corner-image-direita {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Imagem à esquerda */
 .home .corner-image-esquerda {
-    position: absolute;
-    top: 0; 
-    left: 10px; 
-    width: 90px; 
-    height: auto;
-    z-index: 3; 
-    pointer-events: none;
+  top: 10px;
+  left: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .home .overlay {
+    max-width: 90%; /* Reduz a largura do overlay */
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .home .cta-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }
 
 @media (max-width: 768px) {
+  .home {
+    flex-direction: column; /* Empilha conteúdo no mobile */
+    padding: 20px;
+  }
+
+  .home .overlay img {
+    max-width: 70%; /* Reduz o tamanho da imagem do overlay */
+  }
+
   .home .corner-image-direita,
   .home .corner-image-esquerda {
-    max-width: 15%; /* Aumenta para melhor visibilidade em tablets */
+    display: none; /* Esconde as imagens de canto no mobile */
+  }
+  .top-bar {
+    flex-direction: column; /* Empilha os elementos */
+    padding: 10px 15px; /* Reduz padding */
+    text-align: center; /* Centraliza o texto */
+    
+  }
+
+  .top-bar .left-info {
+      flex-direction: row; /* Mantém os spans em linha */
+      gap: 10px; /* Reduz o espaçamento entre spans */
+      font-size: 1rem; /* Texto menor em tablets */
+      white-space: nowrap; /* Impede quebra de linha */
   }
 }
 
 @media (max-width: 480px) {
-  .home .corner-image-direita,
-  .home .corner-image-esquerda {
-    max-width: 20%; /* Ajusta para smartphones */
-    position: fixed; /* Mantém as imagens fixas para evitar sobreposição */
+  .home h1 {
+    font-size: 1.8rem;
+  }
+
+  .home p {
+    font-size: 0.9rem;
+  }
+
+  .home .cta-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .home .overlay img {
+    max-width: 80%;
+    margin-bottom: 15px;
   }
 }
+
+
 
 
 /* Serviços */
@@ -817,8 +965,23 @@ footer {
 /* Responsividade para telas menores que 480px (smartphones) */
 @media (max-width: 480px) {
   .top-bar {
-    flex-direction: column;
-  }
+      padding: 8px 10px; /* Ajusta ainda mais o padding */
+      font-size: 0.8rem; /* Reduz o tamanho geral */
+    }
+
+    .top-bar .left-info {
+      flex-direction: row; /* Mantém os spans em linha */
+      gap: 5px; /* Espaçamento menor no mobile */
+      font-size: 0.7rem; /* Texto menor para evitar quebra */
+      white-space: nowrap; /* Garante que o texto não quebre */
+    }
+
+    .left-info span {
+      text-transform: uppercase;
+      font-weight: bold; 
+      font-size: 1rem;
+      letter-spacing: 1px; 
+    }
 
   .navbar ul {
     gap: 5px;

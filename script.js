@@ -1,5 +1,25 @@
 AOS.init({ duration: 1200, easing: "ease-in-out" });
 
+// Seleciona os elementos
+// Seleciona os elementos
+const hamburger = document.querySelector('.hamburger');
+const sidebarMenu = document.querySelector('.menu-sidebar');
+
+// Alternar a exibição do menu sidebar ao clicar no ícone hambúrguer
+hamburger.addEventListener('click', () => {
+  sidebarMenu.classList.toggle('active');
+});
+
+// Fechar o menu sidebar ao clicar fora dele ou em um link
+document.addEventListener('click', (event) => {
+  if (
+    !sidebarMenu.contains(event.target) && // Clique fora do menu
+    !hamburger.contains(event.target) // Clique fora do ícone hambúrguer
+  ) {
+    sidebarMenu.classList.remove('active'); // Fecha o menu
+  }
+});
+
 // Ajuste de rolagem para compensar o menu fixo
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
