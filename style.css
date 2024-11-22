@@ -31,6 +31,7 @@ body {
 }
 
 .left-info {
+  padding-top: 25px;
   position: absolute;
   left: 50%; 
   transform: translateX(-50%); 
@@ -228,7 +229,7 @@ section {
   }
 }
 
-.corner-image-direita {
+.home .corner-image-direita {
   position: absolute;
   bottom: 10px;
   right: 10px; 
@@ -238,7 +239,7 @@ section {
   pointer-events: none; 
 }
 
-.corner-image-esquerda {
+.home .corner-image-esquerda {
     position: absolute;
     top: 0; 
     left: 10px; 
@@ -247,8 +248,21 @@ section {
     z-index: 3; 
     pointer-events: none;
 }
-  
 
+@media (max-width: 768px) {
+  .home .corner-image-direita,
+  .home .corner-image-esquerda {
+    max-width: 15%; /* Aumenta para melhor visibilidade em tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .home .corner-image-direita,
+  .home .corner-image-esquerda {
+    max-width: 20%; /* Ajusta para smartphones */
+    position: fixed; /* Mantém as imagens fixas para evitar sobreposição */
+  }
+}
 
 
 /* Serviços */
@@ -390,6 +404,37 @@ section {
 .servico-item:hover::before {
   background: rgba(0, 0, 0, 0.7);
 }
+
+/* Estilo geral para os itens de serviço */
+.servico-item {
+  position: relative;
+  background-size: cover; /* Faz a imagem cobrir todo o espaço */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  color: white; /* Garante que o texto fique legível */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; /* Espaçamento entre os itens */
+}
+
+/* Fundo semitransparente para texto */
+.servico-content {
+  position: relative;
+  z-index: 1; /* Garante que o conteúdo fique acima da imagem */
+  background: rgba(0, 0, 0, 0.6); /* Fundo escuro semitransparente */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Efeito visual ao passar o mouse */
+.servico-item:hover {
+  transform: scale(1.02); /* Leve zoom no item */
+  transition: transform 0.3s ease;
+}
+
 
 /* Sobre */
 #sobre {
@@ -729,9 +774,83 @@ footer {
   text-align: center;
 }
 
-.footer-logos img {
-  max-width: 100%; 
-  height: auto; 
-  display: inline-block;
+/* Responsividade para telas menores que 768px (tablets) */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .navbar .logo img {
+    max-width: 100px;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home .cta-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .servicos-container {
+    grid-template-columns: 1fr; /* Um item por linha */
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clientes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
 }
 
+/* Responsividade para telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    gap: 5px;
+  }
+
+  .navbar .logo img {
+    max-width: 80px;
+  }
+
+  .home h1 {
+    font-size: 1.5rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .servico-item {
+    height: auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Uma coluna */
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
